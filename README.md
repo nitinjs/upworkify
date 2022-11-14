@@ -1,4 +1,4 @@
-# Workify - google chrome add-on
+# UpWorkify - google chrome add-on
 Allows to create re-usable templates when posting proposals on upwork.com
 
 ![image](https://user-images.githubusercontent.com/298479/201554328-43e049c4-c36a-4bc2-92af-f55fa860db1c.png)
