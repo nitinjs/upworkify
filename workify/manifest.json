@@ -1,0 +1,33 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "UpWorkify@zikbee.com"
+    }
+  },
+
+  "manifest_version": 2,
+  "name": "UpWorkify",
+  "version": "1.0",
+
+  "description": "Smart template management for upwork website",
+
+  "icons": {
+    "48": "icons/border-48.png",
+    "96": "icons/border-96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [ "*://*.upwork.com/ab/proposals/job/*" ],
+      "js": [ "content/js/jquery-3.6.0.min.js", "content/js/UpWorkify.js" ]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "activeTab",
+    "*://proposalapi.gear.host/*"
+  ]
+
+}
