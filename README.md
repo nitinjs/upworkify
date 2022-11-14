@@ -3,10 +3,8 @@ Allows to create re-usable templates when posting proposals on upwork.com
 
 ![image](https://user-images.githubusercontent.com/298479/201554328-43e049c4-c36a-4bc2-92af-f55fa860db1c.png)
 
-
-
 # Getting Started
-Download and install the addon in google chrome
+Download and install the addon in google chrome from (here)[https://github.com/nitinjs/upworkify/releases/download/stable/workify.crx]
 
 # Build and Test
 Load the workify folder unpacked in google chrome
