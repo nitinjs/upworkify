@@ -1,7 +1,7 @@
 {
   "browser_specific_settings": {
     "gecko": {
-      "id": "UpWorkify@zikbee.com"
+      "id": "UpWorkify@nitinsawant.com"
     }
   },
 
@@ -27,7 +27,7 @@
     "webRequest",
     "webRequestBlocking",
     "activeTab",
-    "*://proposalapi.gear.host/*"
+    "*://proposalapi.nitinsawant.com/*"
   ]
 
 }
