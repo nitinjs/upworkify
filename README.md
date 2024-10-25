@@ -1,14 +1,19 @@
 # UpWorkify - google chrome add-on
 Allows to create re-usable templates when posting proposals on upwork.com
 
-![image](https://user-images.githubusercontent.com/298479/201554328-43e049c4-c36a-4bc2-92af-f55fa860db1c.png)
-
 # Getting Started
 ```
 git clone https://github.com/nitinjs/upworkify.git
 cd upworkify
 ```
 
-# Test in browser in DEV mode
-Load the workify folder unpacked in google chrome
-![image](https://user-images.githubusercontent.com/298479/201554083-7f3a8290-f9d0-4be2-b93b-fe521975bd99.png)
+# Test in google chrome in DEV mode
+Load the upworkify folder unpacked
+
+![image](https://github.com/user-attachments/assets/22885795-826e-443c-ac9e-cd41d43e6d0b)
+
+now when you open the page to post the bid on particular project the addon will inject the controls for `bid template name` and `template content`
+
+![image](https://github.com/user-attachments/assets/ed07a9bf-e6ed-4f64-801b-9c6cd79d7ff3)
+
+
