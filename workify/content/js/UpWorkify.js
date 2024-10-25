@@ -1,5 +1,5 @@
 ﻿var isDebug = false;
-var apiRoot = "https://proposalapi.gear.host/api/proposals";
+var apiRoot = "https://proposalapi.nitinsawant.com/api/proposals";
 if (isDebug) {
     apiRoot = "http://localhost:56242/api/proposals";
 }
