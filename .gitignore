@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/ProposalAPI/bin
-/ProposalAPI/obj
+/.vs
+*.dll
+*.pdb
 /packages
-/workify/.vs

@@ -1,0 +1,11 @@
+@ProposalAPI.Core_HostAddress = http://localhost:44312
+
+GET {{ProposalAPI.Core_HostAddress}}/proposals/
+Accept: application/json
+
+###
+
+GET {{ProposalAPI.Core_HostAddress}}/proposals/1
+Accept: application/json
+
+###

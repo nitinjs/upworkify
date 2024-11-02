@@ -1,11 +1,13 @@
-﻿var isDebug = false;
+﻿var isDebug = true;
 var apiRoot = "https://proposalapi.nitinsawant.com/api/proposals";
 if (isDebug) {
-    apiRoot = "http://localhost:56242/api/proposals";
+    apiRoot = "http://localhost:44312/proposals";
 }
 
+alert("test");
+
 function AppendDropDown() {
-    $("header.nav-v2").css("background-color", "indigo");
+    $("header.nav-v2").css("background-color", "burgundy");
     var $container = $("<div></div>").addClass("form-group up-form-group");
     var $label = $("<label></label>");
     $label.text("Template");

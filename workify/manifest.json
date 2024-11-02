@@ -18,7 +18,7 @@
 
   "content_scripts": [
     {
-      "matches": [ "*://*.upwork.com/ab/proposals/job/*" ],
+      "matches": [ "*://*.upwork.com/nx/proposals/job/*" ],
       "js": [ "content/js/jquery-3.6.0.min.js", "content/js/UpWorkify.js" ]
     }
   ],

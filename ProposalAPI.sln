@@ -23,7 +23,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "workify", "workify\", "{D58
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "63292"
+		SlnRelativePath = "workify\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProposalAPI.Core", "ProposalAPI.Core\ProposalAPI.Core.csproj", "{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +42,10 @@ Global
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
