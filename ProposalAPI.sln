@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProposalAPI", "ProposalAPI\ProposalAPI.csproj", "{C189A74C-5CBE-400A-8E1D-90683E8D3873}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "workify", "workify\", "{D58C36E3-4AD5-497D-810A-605C6BBF330C}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
@@ -26,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "workify", "workify\", "{D58
 		SlnRelativePath = "workify\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProposalAPI.Core", "ProposalAPI.Core\ProposalAPI.Core.csproj", "{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProposalAPI.Core", "ProposalAPI.Core\ProposalAPI.Core.csproj", "{A6FD7B17-2C1C-4000-8BBF-DA2699C25507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +32,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C189A74C-5CBE-400A-8E1D-90683E8D3873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C189A74C-5CBE-400A-8E1D-90683E8D3873}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C189A74C-5CBE-400A-8E1D-90683E8D3873}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C189A74C-5CBE-400A-8E1D-90683E8D3873}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D58C36E3-4AD5-497D-810A-605C6BBF330C}.Release|Any CPU.ActiveCfg = Debug|Any CPU

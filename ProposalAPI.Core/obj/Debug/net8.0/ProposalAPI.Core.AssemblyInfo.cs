@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProposalAPI.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3877821ba46b832a30dde4f663d815ed0ed59221")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80dc48258f90534891d1b2ed5dcffbe8cf2a4a82")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProposalAPI.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProposalAPI.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

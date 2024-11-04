@@ -1,19 +1,17 @@
 ﻿var isDebug = true;
 var apiRoot = "https://proposalapi.nitinsawant.com/api/proposals";
 if (isDebug) {
-    apiRoot = "http://localhost:44312/proposals";
+    apiRoot = "http://localhost:5210/proposals";
 }
 
-alert("test");
-
 function AppendDropDown() {
-    $("header.nav-v2").css("background-color", "burgundy");
+    $("header .nav-v2").css("background-color", "#F5F5DC");
     var $container = $("<div></div>").addClass("form-group up-form-group");
     var $label = $("<label></label>");
     $label.text("Template");
     $label.appendTo($container);
     var $select = $("<select></select>");
-    $select.addClass("up-btn up-btn-default up-dropdown-toggle");
+    $select.addClass("air3-btn air3-btn-primary air3-btn-block-sm").addClass("has-title");
     var $table = $("<table></table>");
     var $tr = $("<tr></tr>");
     var $td = $("<td></td>");
@@ -21,16 +19,20 @@ function AppendDropDown() {
     $td.appendTo($tr);
     //up-btn up-btn-primary m-0
     //var $trBtnEdit = $("<tr></tr>");
+    var $btnAdd = $('<input type="button"/>').addClass("air3-btn air3-btn-secondary air3-btn-block-sm").attr("id", "btnAdd").val("➕ Add");
+    var $btnUpdate = $('<input type="button"/>').addClass("air3-btn air3-btn-secondary air3-btn-block-sm").attr("id", "btnUpdate").val("💾 Update");
+    var $btnDelete = $('<input type="button"/>').addClass("air3-btn air3-btn-secondary air3-btn-block-sm").attr("id", "btnDelete").val("× Delete");
+
+    var $tdBtnAdd = $("<td></td>");
+    $tdBtnAdd.appendTo($tr);
+    $btnAdd.appendTo($tdBtnAdd.appendTo($tr));
+
     var $tdBtnEdit = $("<td></td>");
     $tdBtnEdit.appendTo($tr);
-    //$('<input type="button"/>').addClass("up-btn up-btn-primary m-0").val("➕ Add").appendTo($tdBtnEdit);
-    var $btnUpdate = $('<input type="button"/>').addClass("up-btn up-btn-primary m-0").attr("id", "btnUpdate").val("Update");
-    var $btnDelete = $('<input type="button"/>').addClass("up-btn up-btn-link m-0").attr("id", "btnDelete").val("Delete");
     $btnUpdate.appendTo($tdBtnEdit.appendTo($tr));
 
     var $tdBtnDelete = $("<td></td>");
     $tdBtnDelete.appendTo($tr);
-    var $btnDelete = $('<input type="button"/>').addClass("up-btn up-btn-link m-0").attr("id", "btnDelete").val("Delete");
     $btnDelete.appendTo($tdBtnDelete.appendTo($tr));
 
     $btnUpdate.hide();
@@ -39,11 +41,13 @@ function AppendDropDown() {
         $.ajax({
             url: apiRoot,
             type: 'PUT',
-            data: {
+            contentType: 'application/json; charset=utf8',
+            data: JSON.stringify({
                 'fileName': $select.val(),
                 'contents': $textArea.val()
-            },
+            }),
             success: function (result) {
+                alert("Proposal saved successfully!");
                 // Do something with the result
             }
         });
@@ -53,21 +57,44 @@ function AppendDropDown() {
             $.ajax({
                 url: apiRoot,
                 type: 'DELETE',
-                data: {
+                contentType: 'application/json; charset=utf8',
+                data: JSON.stringify({
                     'fileName': $select.val()
-                },
+                }),
                 success: function (result) {
                     // Do something with the result
                     BindProposals($select, $btnUpdate, $btnDelete, $textArea);
+                    alert("Proposal deleted successfully!");
+                    if ($($select.find("option")).length == 0) {
+                        $btnAdd.click();
+                    }
                 }
             });
         }
     });
     //$trBtnEdit.appendTo($table);
+
+    $btnAdd.click(function () {
+        $.ajax({
+            url: apiRoot,
+            type: 'PUT',
+            contentType: 'application/json; charset=utf8',
+            data: JSON.stringify({
+                'fileName': "proposal v" + $($select.find("option")).length + ".txt",
+                'contents': $textArea.val()
+            }),
+            success: function (result) {
+                BindProposals($select, $btnUpdate, $btnDelete, $textArea);
+                alert("New proposal template saved successfully!");
+                // Do something with the result
+            }
+        });
+    });
+
     $tr.appendTo($table);
 
     $table.appendTo($container);
-    var $parent = $("#cover_letter_label").parents("section");
+    var $parent = $(".cover-letter-area").parents("section");
     $parent.prepend($container);
 
     var $textArea = $($parent.find("textarea"));
@@ -79,7 +106,7 @@ function AppendDropDown() {
         if (fileName != "0") {
             $btnUpdate.show();
             $btnDelete.show();
-            $.get(apiRoot + "?fileName=" + fileName, function (data) {
+            $.post(apiRoot + "?fileName=" + fileName, function (data) {
                 $textArea.val(data);
                 $textArea.css("height", "350px");
             });
@@ -96,7 +123,8 @@ function BindProposals($select, $btnUpdate, $btnDelete, $textArea) {
     $('<option value="0">--Select Template--</option>').appendTo($select);
     $.get(apiRoot, function (data) {
         $(data).each(function (i, e) {
-            var $option = $('<option value="' + e + '">' + e.substring(0, e.length - 4) + '</option>')
+            var $option = $('<option value="' + e + '">' + e.substring(0, e.length - 4) + '</option>');
+            $option.addClass("air3-btn air3-btn-secondary air3-btn-block-sm");
             $option.appendTo($select);
         });
     }).done(function () {

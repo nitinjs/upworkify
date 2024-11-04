@@ -11,12 +11,20 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
 });
+builder.Services.AddCors();
 
 var app = builder.Build();
+app.UseCors(policy =>
+{
+    policy.AllowAnyHeader();
+    policy.AllowAnyMethod();
+    policy.AllowAnyOrigin();
+});
 
 string ProposalsDirectory = Environment.CurrentDirectory + "\\" + @"Content\Proposals\";
 
-Func<Exception, IResult> ErrorDetails = (ex) => {
+Func<Exception, IResult> ErrorDetails = (ex) =>
+{
     return Results.Problem(new Microsoft.AspNetCore.Mvc.ProblemDetails()
     {
         Title = "Unexpected error occurred",
@@ -26,14 +34,15 @@ Func<Exception, IResult> ErrorDetails = (ex) => {
 };
 
 var proposalApi = app.MapGroup("/proposals");
-proposalApi.MapGet("/", () =>{
+proposalApi.MapGet("/", () =>
+{
     try
     {
         DirectoryInfo dir = new DirectoryInfo(ProposalsDirectory);
         var files = dir.GetFiles("*.txt").Select(x => x.Name).ToList();
         var data = files.Select(x => new
         {
-            index = int.Parse(new String(x.Where(Char.IsDigit).ToArray())),
+            index = int.Parse(new String(x.Where(Char.IsDigit).Count() == 0 ? new char[] { '0' } : x.Where(Char.IsDigit).ToArray())),
             value = x
         }).OrderByDescending(x => x.index).Select(x => x.value).ToArray();
 
@@ -45,7 +54,21 @@ proposalApi.MapGet("/", () =>{
     }
 });
 
-proposalApi.MapGet("/{fileName}", (int fileName) => {
+//proposalApi.MapGet("/{fileName}", (string fileName) =>
+//{
+//    try
+//    {
+//        string content = File.ReadAllText(ProposalsDirectory + fileName);
+//        return Results.Ok(content);
+//    }
+//    catch (Exception ex)
+//    {
+//        return ErrorDetails(ex);
+//    }
+//});
+
+proposalApi.MapPost("/", (string fileName) =>
+{
     try
     {
         string content = File.ReadAllText(ProposalsDirectory + fileName);
@@ -57,22 +80,11 @@ proposalApi.MapGet("/{fileName}", (int fileName) => {
     }
 });
 
-proposalApi.MapPost("/", (string fileName) => {
+proposalApi.MapPut("/", (ModifyProposalModel model) =>
+{
     try
     {
-        string content = File.ReadAllText(ProposalsDirectory + fileName);
-        return Results.Ok(content);
-    }
-    catch (Exception ex)
-    {
-        return ErrorDetails(ex);
-    }
-});
-
-proposalApi.MapPut("/", (ModifyProposalModel model) => {
-    try
-    {
-        string filePath = ProposalsDirectory + model.fileName;
+        string filePath = ProposalsDirectory + (model.fileName.ToLower().EndsWith(".txt")?model.fileName:model.fileName + ".txt");
 
         if (File.Exists(filePath))
         {
@@ -93,7 +105,8 @@ proposalApi.MapPut("/", (ModifyProposalModel model) => {
     }
 });
 
-proposalApi.MapDelete("/", (ModifyProposalModel model) => {
+proposalApi.MapDelete("/", (ModifyProposalModel model) =>
+{
     try
     {
         File.Delete(ProposalsDirectory + model.fileName);
