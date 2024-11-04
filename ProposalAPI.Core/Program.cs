@@ -25,8 +25,8 @@ Func<Exception, IResult> ErrorDetails = (ex) => {
     });
 };
 
-var proposalApi = app; ;//.MapGroup("/proposals");
-proposalApi.MapGet("/proposals", () =>{
+var proposalApi = app.MapGroup("/proposals");
+proposalApi.MapGet("/", () =>{
     try
     {
         DirectoryInfo dir = new DirectoryInfo(ProposalsDirectory);
@@ -44,8 +44,8 @@ proposalApi.MapGet("/proposals", () =>{
         return ErrorDetails(ex);
     }
 });
-/*
-proposalApi.MapGet("/proposals/{fileName}", (int fileName) => {
+
+proposalApi.MapGet("/{fileName}", (int fileName) => {
     try
     {
         string content = File.ReadAllText(ProposalsDirectory + fileName);
@@ -57,7 +57,7 @@ proposalApi.MapGet("/proposals/{fileName}", (int fileName) => {
     }
 });
 
-proposalApi.MapPost("/proposals/", (string fileName) => {
+proposalApi.MapPost("/", (string fileName) => {
     try
     {
         string content = File.ReadAllText(ProposalsDirectory + fileName);
@@ -69,7 +69,7 @@ proposalApi.MapPost("/proposals/", (string fileName) => {
     }
 });
 
-proposalApi.MapPut("/proposals/", (ModifyProposalModel model) => {
+proposalApi.MapPut("/", (ModifyProposalModel model) => {
     try
     {
         string filePath = ProposalsDirectory + model.fileName;
@@ -93,7 +93,7 @@ proposalApi.MapPut("/proposals/", (ModifyProposalModel model) => {
     }
 });
 
-proposalApi.MapDelete("/proposals", (ModifyProposalModel model) => {
+proposalApi.MapDelete("/", (ModifyProposalModel model) => {
     try
     {
         File.Delete(ProposalsDirectory + model.fileName);
@@ -104,7 +104,7 @@ proposalApi.MapDelete("/proposals", (ModifyProposalModel model) => {
         return ErrorDetails(ex);
     }
 });
-*/
+
 app.Run();
 
 
