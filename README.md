@@ -14,6 +14,7 @@ Load the upworkify folder unpacked
 
 now when you open the page to post the bid on particular project the addon will inject the controls for `bid template name` and `template content`
 
-![image](https://github.com/user-attachments/assets/ed07a9bf-e6ed-4f64-801b-9c6cd79d7ff3)
+![image](https://github.com/user-attachments/assets/fdb1b434-a538-4a83-a866-93e3b8180a0b)
+
 
 
