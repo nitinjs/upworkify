@@ -25,7 +25,7 @@ Func<Exception, IResult> ErrorDetails = (ex) => {
     });
 };
 
-var proposalApi = app.MapGroup("/proposals");
+var proposalApi = app; ;//.MapGroup("/proposals");
 proposalApi.MapGet("/proposals", () =>{
     try
     {
@@ -44,7 +44,7 @@ proposalApi.MapGet("/proposals", () =>{
         return ErrorDetails(ex);
     }
 });
-
+/*
 proposalApi.MapGet("/proposals/{fileName}", (int fileName) => {
     try
     {
@@ -104,7 +104,7 @@ proposalApi.MapDelete("/proposals", (ModifyProposalModel model) => {
         return ErrorDetails(ex);
     }
 });
-
+*/
 app.Run();
 
 
